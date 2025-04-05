@@ -1,3 +1,4 @@
+{% load static  %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Set Appointment</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+    <link rel="stylesheet" href="{% static "dashboard.css" %}">
     <style>
         #overlay {
             position: fixed;
@@ -113,6 +115,66 @@
     </style>
 </head>
 <body>
+
+
+<div class="container-fluid p-0">
+  <div class="row g-0">
+      <!-- Sidebar -->
+      <div class="col-auto">
+          <div class="sidebar">
+              <!-- Logo -->
+              <div class="logo">
+                  <div class="logo-icon">M</div>
+                  <div class="logo-text fw-bold fs-5">MedVault</div>
+              </div>
+              
+              <!-- Navigation -->
+              <nav>
+                <a href="{% url "dashboard" %}" class="nav-link active">
+                  <i class="fas fa-th-large"></i>
+                  <span>Dashboard</span>
+              </a>
+              <a href="{% url "home" %}" class="nav-link">
+                  <i class="far fa-calendar-alt"></i>
+                  <span>Appointments</span>
+              </a>
+              </a>
+              <a href="{% url "doc" %}" class="nav-link">
+                  <i class="fas fa-user-md"></i>
+                  <span>Doctor</span>
+              </a>
+                  <a href="#" class="nav-link">
+                      <i class="far fa-file-alt"></i>
+                      <span>Reports</span>
+                  </a>
+                  <a href="{% url "login" %}" class="nav-link">
+                      <i class="far fa-question-circle"></i>
+                      <span>Login</span>
+                  </a>
+              </nav>
+              
+              <!-- Admin Profile -->
+              <div class="admin-profile">
+                  <div style="display:flex;flex-direction:column;align-items:center;">
+                      <div class="logo-icon center">A</div>
+                      <div class="admin-name" id="patientName">Dr. Sadettin Kupek</div>
+                      <div class="admin-role" style="word-break: break-word;text-overflow: ellipsis;" id="patientAddress">Super Admin</div>
+                  </div>
+                  <div class="admin-actions">
+                      <button class="admin-action-btn">
+                          <i class="fas fa-cog"></i>
+                      </button>
+                      <button class="admin-action-btn">
+                          <i class="fas fa-mobile-alt"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Main Content -->
+      <div class="col">
+          <div class="main-content">
     <div class="body">
         <div class="center">
             <h2>Set Appointment</h2>
@@ -229,7 +291,7 @@
             document.getElementById("overlay").style.display = "none";
             connectWallet();
         }
-
+        connectWallet();
     </script>
 </body>
 </html>

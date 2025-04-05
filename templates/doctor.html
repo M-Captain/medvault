@@ -1,22 +1,97 @@
+{% load static  %}
 <!-- From Uiverse.io by micaelgomestavares --> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+<head>
+  <link rel="stylesheet" href="{% static "dashboard.css" %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+</head>
+
+<div class="container-fluid p-0">
+  <div class="row g-0">
+      <!-- Sidebar -->
+      <div class="col-auto">
+          <div class="sidebar">
+              <!-- Logo -->
+              <div class="logo">
+                  <div class="logo-icon">M</div>
+                  <div class="logo-text fw-bold fs-5">MedVault</div>
+              </div>
+              
+              <!-- Navigation -->
+              <nav>
+                <a href="{% url "dashboard" %}" class="nav-link active">
+                  <i class="fas fa-th-large"></i>
+                  <span>Dashboard</span>
+              </a>
+              <a href="{% url "home" %}" class="nav-link">
+                  <i class="far fa-calendar-alt"></i>
+                  <span>Appointments</span>
+              </a>
+              </a>
+              <a href="{% url "doc" %}" class="nav-link">
+                  <i class="fas fa-user-md"></i>
+                  <span>Doctor</span>
+              </a>
+                  <a href="#" class="nav-link">
+                      <i class="far fa-file-alt"></i>
+                      <span>Reports</span>
+                  </a>
+                  <a href="{% url "login" %}" class="nav-link">
+                    <i class="far fa-question-circle"></i>
+                    <span>Login</span>
+                </a>
+              </nav>
+              
+              <!-- Admin Profile -->
+              <div class="admin-profile">
+                  <div style="display:flex;flex-direction:column;align-items:center;">
+                      <div class="logo-icon center">A</div>
+                      <div class="admin-name" id="patientName">Dr. Sadettin Kupek</div>
+                      <div class="admin-role" style="word-break: break-word;text-overflow: ellipsis;" id="patientAddress">Super Admin</div>
+                  </div>
+                  <div class="admin-actions">
+                      <button class="admin-action-btn">
+                          <i class="fas fa-cog"></i>
+                      </button>
+                      <button class="admin-action-btn">
+                          <i class="fas fa-mobile-alt"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Main Content -->
+      <div class="col">
+          <div class="main-content">
 <div class="body">
 <div class="center">
   <h2>Treatment</h2>
   <div class="form">
     <div class="flex-column">
-      <label>Checkup </label></div>
+      <label>Expected Diease </label></div>
       <div class="inputForm">
         <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg"><g id="Layer_3" data-name="Layer 3"><path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path></g></svg>
-        <input type="text" class="input" id="title" placeholder="Write what is happening to patient">
+        <input type="text" class="input" id="ailment" placeholder="Write what is happening to patient">
       </div>
+      <div class="flex-column">
+        <label>Symptoms </label></div>
+        <div class="inputForm">
+          <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg"><g id="Layer_3" data-name="Layer 3"><path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path></g></svg>
+          <input type="text" class="input" id="symps" placeholder="Write what is happening to patient">
+        </div>
     
     <div class="flex-column">
-      <label>Treatment </label></div>
+      <label>Prescription </label></div>
       <div class="inputForm">
         <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path><path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path></svg>        
-        <input type="text" class="input" id="message" placeholder="Prescribe Medicine and Treatment">
+        <input type="text" class="input" id="pres" placeholder="Prescribe Medicine and Treatment">
       </div>
+      <div class="flex-column">
+        <label>Test </label></div>
+        <div class="inputForm">
+          <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path><path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path></svg>        
+          <input type="text" class="input" id="test" placeholder="Prescribe Medicine and Treatment">
+        </div>
     </div>
     <button style="max-width:500px;" onclick="connectWallet()" class="button-submit">
         <img style="height:20px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/768px-MetaMask_Fox.svg.png?20220831120339"/>
@@ -212,7 +287,7 @@
       appointmentList.innerHTML = "";  // Clear previous results
 
       for (let i = 0; i < feedbackCount; i++) {
-          const appointment = await contract.get_appointment(i, patientAddr);
+          const appointment = await contract.get_appointment(i);
           if (appointment.doctor.toLowerCase() === patientAddr && appointment.checkup==="") {   
               const li = document.createElement("li");
               li.innerHTML = `<hr><strong>Patient:</strong> ${appointment.patient} <br>
@@ -226,13 +301,15 @@
               
               // Add event listener to the button
               btn.addEventListener("click", async () => {
-                  const title = document.getElementById("title").value;
-                  const message = document.getElementById("message").value;
+                  const title = document.getElementById("ailment").value;
+                  const symps = document.getElementById("symps").value;
+                  const pres = document.getElementById("pres").value;
+                  const test = document.getElementById("test").value;
                   if (!contract) return alert("Connect Wallet first!");
 
                   try {
                   document.getElementById("overlay").style.display = "block";
-                      const tx = await contract.treat_appointment(title, message,i);
+                      const tx = await contract.treat_appointment(title, symps,pres,test,i);
                       await tx.wait(); 
                       alert("Feedback added successfully!");
                   } catch (error) {

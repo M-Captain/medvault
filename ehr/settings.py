@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-q#ot9jpg4=vq@a9w1nvsgdx21r_5-1b&+o_j26z2q*!k^wqj2n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['medvault-k53v.onrender.com','https://medvault-1.onrender.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
