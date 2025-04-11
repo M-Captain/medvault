@@ -1,10 +1,10 @@
 
-A blockchain-powered, decentralized EHR system that ensures:
-✅ Data security via immutability and encryption.
-✅ Patient ownership & control over records using self-sovereign identity (SSI).
-✅ Smart contracts for seamless and permissioned data sharing.
-✅ Interoperability through standardized blockchain protocols.
-✅ Tamper-proof records ensuring trust and authenticity in medical data.
+A blockchain-powered, decentralized EHR system that ensures:<br>
+✅ Data security via immutability and encryption.<br>
+✅ Patient ownership & control over records using self-sovereign identity (SSI).<br>
+✅ Smart contracts for seamless and permissioned data sharing.<br>
+✅ Interoperability through standardized blockchain protocols.<br>
+✅ Tamper-proof records ensuring trust and authenticity in medical data.<br>
 
 
 ## 🛠 Skills
